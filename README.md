@@ -1,0 +1,1 @@
+A simple add-on to enable 'draft' in Mozilla Status Board
