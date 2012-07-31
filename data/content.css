@@ -1,0 +1,9 @@
+#msb-tweak-draft {
+  font-size: 80%;
+  color: #444;
+  padding: 0 1em;
+}
+
+#msb-tweak-draft.typing {
+  font-style: italic;
+}
