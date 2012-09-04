@@ -10,6 +10,9 @@
   whatsNew.addEventListener("keypress", function (event) {
     if ( event.keyCode === event.DOM_VK_RETURN ) {
       addTodo(this.value);
+
+      event.preventDefault();
+      event.stopPropagation();
     }
   });
 
@@ -75,7 +78,7 @@
       }
 
       event.preventDefault();
-
+      event.stopPropagation();
     }
 
     saveTodos();
