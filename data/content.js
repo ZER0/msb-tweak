@@ -53,6 +53,14 @@ let Draft = {
   discard: function() {
     Draft.data = null;
     self.port.emit("save-draft", null);
+  },
+
+  post: function() {
+    Draft.data.completed = "";
+    Draft.data.tags = "";
+    // keep planned!
+
+    self.port.emit("save-draft", Draft.data);    
   }
 }
 
@@ -109,7 +117,7 @@ function main(draft) {
   });
 
   form.addEventListener("input", updateSubmit);
-  form.addEventListener("submit", Draft.discard);
+  form.addEventListener("submit", Draft.post);
 }
 
 self.port.on("init", main);
