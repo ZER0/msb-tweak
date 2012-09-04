@@ -22,23 +22,6 @@ function prettyDate(time, now){
     day_diff > 364 && Math.ceil( day_diff / 365 ) + " years ago"
 };
 
-/**
- * Curries a function with the arguments given.
- *
- * @param {Function} fn
- *    The function to curry
- *
- * @returns The function curried
- */
-function curry(fn) {
-  if (typeof fn !== "function")
-    throw new TypeError(String(fn) + " is not a function");
-
-  let args = Array.slice(arguments, 1);
-
-  return function() fn.apply(this, args.concat(Array.slice(arguments)));
-}
-
 
 /**
  * Returns a new namespace, function that may can be used to access an
@@ -76,8 +59,8 @@ function ns() {
   function stopTyping() {
     if (typingTarget) {
       let typingEvent = document.createEvent("CustomEvent");
-      typingEvent.initCustomEvent("typingstop", true, true, null);
-
+      typingEvent.initCustomEvent("typingstop", true, false, null);
+      
       typingTarget.dispatchEvent(typingEvent);
     }
 
@@ -91,7 +74,7 @@ function ns() {
       clearTimeout(typingTimer);
     } else {
       let typingEvent = document.createEvent("CustomEvent");
-      typingEvent.initCustomEvent("typingstart", true, true, null);
+      typingEvent.initCustomEvent("typingstart", true, false, null);
 
       typingTarget = event.target;
       typingTarget.dispatchEvent(typingEvent);

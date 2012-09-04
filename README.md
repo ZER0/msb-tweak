@@ -1,1 +1,1 @@
-A simple add-on to enable 'draft' in Mozilla Status Board
+An add-on to enable 'draft' and 'todo list' in Mozilla Status Board

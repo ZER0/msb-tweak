@@ -1,7 +1,7 @@
 //- Testing bug 737003 on Page-Mod
 
 let Draft = {
-  data: self.options.draft,
+  data: null,
 
   display: function (form, label) {
     let { data } = Draft;
@@ -56,7 +56,9 @@ let Draft = {
   }
 }
 
-function main() {
+function main(draft) {
+
+  Draft.data = draft;
 
   let submit = document.querySelector("div.fullwidth p input[type=submit]");
   let timer = null;
@@ -72,10 +74,8 @@ function main() {
   if (!submit)
     return;
 
-  let label = document.createElement("label");
+  let label = document.getElementById("msb-tweak-draft");
   let { form } = submit;
-
-  label.id = "msb-tweak-draft";
 
   submit.parentNode.appendChild(label);
 
@@ -112,4 +112,4 @@ function main() {
   form.addEventListener("submit", Draft.discard);
 }
 
-main();
+self.port.on("init", main);

@@ -1,0 +1,37 @@
+<body>
+
+  <form class="editpost bordered">
+    <section insertbefore="h3">
+      <input type="checkbox" id="msb-tweak-todo-switch" />
+      <label for="msb-tweak-todo-switch"></label>
+    </section>
+
+    <section id="msb-tweak-todo" insertbefore="h3:last-of-type">
+
+        <input id="msb-tweak-whats-new" placeholder="What's next?"
+          style="border: 1px solid #ccc;"
+        />
+
+        <ul id="msb-tweak-todo-list"></ul>
+
+        <footer>
+          <span id="msb-tweak-item-count"><strong></strong> items left</span>
+        </footer>
+
+        <!-- TODO: add templates functionality -->
+        <ul id="template:msb-tweak-item">
+          <li>
+            <div class="view">
+              <input type="checkbox" /><label></label>
+            </div>
+            <input type="text" class="edit" />
+          </li>
+        </ul>
+    </section>
+
+    <label
+      id="msb-tweak-draft"
+      insertafter="p input[type=submit]"></label>
+  </form>
+
+</body>
